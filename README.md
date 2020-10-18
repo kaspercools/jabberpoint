@@ -5,13 +5,16 @@
 - [About The Project](#about-the-project)
 - [Getting Started](#getting-started)
   - [Device configuration and startup](#device-configuration-and-startup)
-- [Quick walkthrough](#quick-walkthrough)
 
 
 ## About The Project
 
 This application is an updated version of Ian Darwin's [JabberPoint](https://github.com/IanDarwin/jabberpoint).
 This is a revisioned version the JabberPoint application’s architecture in the context of one of the Software Engineering courses at the [Open University](https://www.ou.nl/-/macs-2020-2021_master-computer-science-msc-)
+
+This specific Jabberpoint implementation is written in JavaFX. Jabberpoint reads out XML definitions in order for it to know what each slide look like. In this particular version it is possible to define different subsets within a presentation file. This enables you to select specific slides to be shown or skipped while presenting.
+
+![alt text](./screenshots_app/example_slide.png)
 
 ## Getting Started
 
@@ -27,9 +30,6 @@ To get a local copy up and running follow these simple steps.
         * when using the run/debug options via the IDE itself you will have to include the javafx sdk by adding following VM options:
 ```--module-path="/path/to/javafx-sdk-12.0.2/lib" --add-modules=javafx.controls,javafx.fxml``` which can be configured via the __Run/Debug Configuration__ window
 
-## Quick walkthrough
-This specific Jabberpoint implementation is written in JavaFX. Jabberpoint reads out XML definitions in order for it to know what each slide look like. In this particular version it is possible to define different subsets within a presentation file. This enables you to select specific slides to be shown or skipped while presenting.
 
-![alt text](./screenshots_app/example_slide.png)
 
 
