@@ -12,7 +12,7 @@
 This application is an updated version of Ian Darwin's [JabberPoint](https://github.com/IanDarwin/jabberpoint).
 This is a revisioned version the JabberPoint application’s architecture in the context of one of the Software Engineering courses at the [Open University](https://www.ou.nl/-/macs-2020-2021_master-computer-science-msc-)
 
-This specific Jabberpoint implementation is written in JavaFX. Jabberpoint reads out XML definitions in order for it to know what each slide look like. In this particular version it is possible to define different subsets within a presentation file. This enables you to select specific slides to be shown or skipped while presenting.
+This specific Jabberpoint implementation is written in JavaFX. Jabberpoint reads out XML definitions to know what each slide looks like. In this particular version it is possible to define different subsets within a presentation file. This enables you to select specific slides to be shown or skipped while presenting.
 
 ![alt text](./screenshots_app/example_slide.png)
 
