@@ -1,0 +1,204 @@
+<?xml version="1.1" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+           elementFormDefault="qualified"
+           xmlns="http://jabberpoint.ou.nl"
+           targetNamespace="http://jabberpoint.ou.nl"
+           vc:minVersion="1.1">
+    <xs:element name="presentation" type="presentationType">
+        <xs:unique name="uniqueSlide">
+            <xs:selector xpath="slide"/>
+            <xs:field xpath="@id"/>
+        </xs:unique>
+        <xs:unique name="uniqueLevelForStyle">
+            <xs:selector xpath="theme/style"/>
+            <xs:field xpath="@level"/>
+        </xs:unique>
+        <xs:unique name="uniqueNameForStyle">
+            <xs:selector xpath="theme/style"/>
+            <xs:field xpath="@name"/>
+        </xs:unique>
+    </xs:element>
+
+    <xs:complexType name="metadataType">
+        <xs:sequence>
+            <xs:element name="author" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="creation-date" type="xs:date" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="skip-transitions" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="show-footer" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="show-header" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="theme" type="xs:string" minOccurs="1" maxOccurs="1">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="listCollectionType">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element type="itemType" name="item"/>
+                <xs:element type="listCollectionType" name="list"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="type" type="listStyleType"/>
+    </xs:complexType>
+
+    <xs:complexType name="itemType">
+        <xs:simpleContent>
+            <xs:extension base="nonEmptyString">
+                <xs:attribute type="kindType" name="kind" use="required"/>
+                <xs:attribute type="xs:string" name="style"/>
+                <xs:attribute type="xs:int" name="level"/>
+                <xs:attribute type="effectType" name="effect"/>
+                <xs:attribute type="xs:double" name="x"/>
+                <xs:attribute type="xs:double" name="y"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="sequenceType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="slide" type="sequenceSlideType"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="sequenceSlideType">
+        <xs:sequence>
+            <xs:element name="skip" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:int"/>
+    </xs:complexType>
+
+    <xs:complexType name="slideType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element type="itemType" name="item"/>
+                <xs:element type="listCollectionType" name="list"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute type="xs:int" name="id" use="required"/>
+        <xs:attribute type="slideTypeType" name="type" use="required"/>
+        <xs:attribute type="effectType" name="effect" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="presentationType">
+        <xs:sequence>
+            <xs:element type="metadataType" name="metadata"
+                        minOccurs="1" maxOccurs="1"/>
+            <xs:element type="themeType" name="theme" minOccurs="1"
+                        maxOccurs="1"/>
+            <xs:element name="sequence" type="sequenceType" minOccurs="0"/>
+            <xs:element type="slideType" name="slide"
+                        maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="themeType">
+        <xs:sequence>
+            <xs:element type="styleType" name="style" minOccurs="1"
+                        maxOccurs="unbounded">
+                <xs:unique name="spacingUniqueWithinStyle">
+                    <xs:selector xpath="spacing/direction"/>
+                    <xs:field xpath="."/>
+                </xs:unique>
+            </xs:element>
+            <xs:element type="xs:string" name="footer" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="header" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="imageType" name="backdrop" minOccurs="0" maxOccurs="1">
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="styleType">
+        <xs:sequence>
+            <xs:element name="backgroundColor" minOccurs="0" type="xs:string"/>
+            <xs:element name="color" type="hexType" minOccurs="0"/>
+            <xs:element type="fontType" name="font" minOccurs="0"
+                        maxOccurs="1"/>
+            <xs:element type="spacingType" name="spacing" minOccurs="0"
+                        maxOccurs="4">
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:int" name="level"/>
+        <xs:attribute type="xs:string" name="name"/>
+    </xs:complexType>
+
+    <xs:complexType name="fontType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="fontFace"/>
+            <xs:element type="xs:integer" name="fontSize"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="spacingType">
+        <xs:sequence maxOccurs="1">
+            <xs:element type="directionType" name="direction" maxOccurs="1" minOccurs="1"/>
+            <xs:element type="xs:double" name="value" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="imageType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".*(jpg|jpeg|gif|png)"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="directionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Top"/>
+            <xs:enumeration value="Left"/>
+            <xs:enumeration value="Bottom"/>
+            <xs:enumeration value="Right"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="effectType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="slide-in"/>
+            <xs:enumeration value="appear"/>
+            <xs:enumeration value="fade-in"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="listStyleType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="number"/>
+            <xs:enumeration value="bullet"/>
+            <xs:enumeration value="lowerAlpha"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="kindType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="text"/>
+            <xs:enumeration value="image"/>
+            <xs:enumeration value="video"/>
+            <xs:enumeration value="audio"/>
+            <xs:enumeration value="table"/>
+            <xs:enumeration value="shape"/>
+            <xs:enumeration value="chart"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="hexType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="#[0-9A-Fa-f]+|[0-9]+">
+            </xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="nonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="slideTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TitleSlide"/>
+            <xs:enumeration value="TableOfContentsSlide"/>
+            <xs:enumeration value="OrdinarySlide"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

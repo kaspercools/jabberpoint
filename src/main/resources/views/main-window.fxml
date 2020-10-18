@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="800" minWidth="1200" prefHeight="800"
+            prefWidth="1200" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="nl.ou.jabberpoint.ui.controllers.JabberPointPresentationController">
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="Bestand">
+                    <items>
+                        <MenuItem text="Open (CTRL+O)" fx:id="openFileMenuItem"/>
+                        <MenuItem text="Exit (CTRL+Q)" fx:id="exitApplicationMenuItem"/>
+                    </items>
+                </Menu>
+                <Menu text="Navigatie">
+                    <items>
+                        <MenuItem text="Volgende slide (ENTER)" fx:id="nextSlideMenuItem"/>
+                        <MenuItem text="Vorige slide (BACKSPACE)" fx:id="previousSlideMenuItem"/>
+                        <MenuItem text="Volgende stap (CTRL+N/SPATIE)" fx:id="nextSlideStepMenuItem"/>
+                        <MenuItem text="Vorige stap (CTRL+P)" fx:id="previousSlideStepMenuItem"/>
+                        <MenuItem text="Navigeer naar (CTRL+S)" fx:id="goToSpecificSlideMenuItem"/>
+                    </items>
+                </Menu>
+                <Menu text="Inhoud">
+                    <MenuItem text="Over deze presentatie (CTRL+M)" fx:id="aboutThisPresentationMenuItem"/>
+                    <SeparatorMenuItem/>
+                    <items>
+                        <MenuItem text="Selecteer inhoud (CTRL+I)" fx:id="selectSequenceMenuItem"/>
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem text="About (CTRL+A)" fx:id="aboutMenuItem"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <fx:include fx:id="slideShow" source="slide-show.fxml"/>
+    </center>
+</BorderPane>

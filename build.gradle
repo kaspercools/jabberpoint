@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+group 'nl.ou'
+version '1.0'
+mainClassName = 'nl.ou.jabberpoint.JabberPoint'
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "11.0.2"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    compile 'org.apache.tika:tika-parsers:1.11'
+
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.9.9'
+    compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.5'
+    compile group: 'org.controlsfx', name: 'controlsfx', version: '11.0.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+}
+
+javadoc {
+    classpath += sourceSets.test.compileClasspath
+    source += sourceSets.test.allJava
+}
+
+task testJavadoc(type: Javadoc) {
+    source = sourceSets.test.allJava
+    classpath = sourceSets.test.compileClasspath
+}
+
+test {
+    useJUnitPlatform()
+}
+

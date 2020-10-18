@@ -1,0 +1,267 @@
+<?xml version="1.1"?>
+<presentation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://jabberpoint.ou.nl"
+              xsi:schemaLocation="http://jabberpoint.ou.nl ../jabberpoint.xsd">
+    <metadata>
+        <author>Kasper Cools</author>
+        <creation-date>2019-09-09</creation-date>
+        <show-footer>true</show-footer>
+        <show-header>true</show-header>
+        <theme>DefaultTheme</theme>
+    </metadata>
+    <theme name="DefaultTheme">
+        <style name="mainTitleStyle">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#2e8adc</color>
+            <font>
+                <fontFace>Arial Rounded MT</fontFace>
+                <fontSize>96</fontSize>
+            </font>
+            <spacing>
+                <direction>Top</direction>
+                <value>325</value>
+            </spacing>
+            <spacing>
+                <direction>Left</direction>
+                <value>200</value>
+            </spacing>
+        </style>
+        <style name="titleStyle">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#3382f4</color>
+            <font>
+                <fontFace>Arial Rounded MT</fontFace>
+                <fontSize>62</fontSize>
+            </font>
+            <spacing>
+                <direction>Top</direction>
+                <value>5</value>
+            </spacing>
+            <spacing>
+                <direction>Left</direction>
+                <value>10</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <style name="level_1" level="1">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#042732</color>
+            <font>
+                <fontFace>Verdana</fontFace>
+                <fontSize>32</fontSize>
+            </font>
+            <spacing>
+                <direction>Top</direction>
+                <value>20</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+            <spacing>
+                <direction>Left</direction>
+                <value>30</value>
+            </spacing>
+        </style>
+        <style name="level_2" level="2">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#042732</color>
+            <font>
+                <fontFace>Tahoma</fontFace>
+                <fontSize>24</fontSize>
+            </font>
+            <spacing>
+                <direction>Top</direction>
+                <value>5</value>
+            </spacing>
+            <spacing>
+                <direction>Left</direction>
+                <value>50</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <style name="level_3" level="3">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#000000</color>
+            <font>
+                <fontFace>Tahoma</fontFace>
+                <fontSize>16</fontSize>
+            </font>
+            <spacing>
+                <direction>Top</direction>
+                <value>5</value>
+            </spacing>
+            <spacing>
+                <direction>Left</direction>
+                <value>70</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <style name="Custom image padding">
+            <spacing>
+                <direction>Left</direction>
+                <value>250</value>
+            </spacing>
+        </style>
+        <style name="level_4" level="4">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#000000</color>
+            <font>
+                <fontFace>Bradley Hand</fontFace>
+                <fontSize>14</fontSize>
+            </font>
+            <spacing>
+                <direction>Left</direction>
+                <value>90</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <footer>Created by: $author$, on: $creationDate$ - (title: $slide.title$, type: $slide.type$) </footer>
+        <header>$slide.nr$ / $slides.count$</header>
+        <backdrop>ou-backdrop.png</backdrop>
+    </theme>
+    <sequence name="Decorator without examples">
+        <slide id="1">
+        </slide>
+        <slide id="2">
+            <skip>6</skip>
+        </slide>
+        <slide id="3"/>
+        <slide id="4"/>
+        <slide id="5"/>
+        <slide id="2">
+            <skip>6</skip>
+        </slide>
+
+    </sequence>
+
+    <slide id="1" type="TitleSlide">
+        <item kind="text" style="mainTitleStyle">The Decorator Pattern</item>
+    </slide>
+    <slide id="2" type="TableOfContentsSlide">
+        <item kind="text" style="titleStyle">Table of contents</item>
+        <item kind="text" level="1">Intent</item>
+        <item kind="text" level="1">Motivation</item>
+        <item kind="text" level="1">Applicability</item>
+        <item kind="text" level="1">Structure</item>
+        <item kind="text" level="1">Examples</item>
+    </slide>
+    <slide id="3" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">Intent of the Decorator pattern</item>
+        <item kind="text" level="1">Intent</item>
+        <item kind="text" level="2">Attach additional responsibilities to an object dynamically. Decorators provide a
+flexible alternative to subclassing for extending functionality.
+        </item>
+        <item kind="text" level="1">Also known as</item>
+        <item kind="text" level="2">Wrapper</item>
+        <item kind="text" level="1">Motivation</item>
+        <item kind="text" level="2">We want to add properties, such as borders or scrollbars to a GUI
+component. We can do this with inheritance (subclassing), but this limits
+our flexibility. A better way is to use composition!
+        </item>
+        <item kind="image" style="Custom image padding" level="2">decorator_demo/decorator_example.png</item>
+    </slide>
+    <slide id="4" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">Applicability</item>
+        <item kind="text" level="1">Use decorator:</item>
+        <item kind="text" level="2">To add responsibilities to individual objects dynamically without
+affecting other objects.</item>
+        <item kind="text" level="2">When extension by subclassing is impractical. Sometimes a large number of
+independent extensions are possible and would produce an explosion of
+subclasses to support every combination. Or a class definition may be hidden
+or otherwise unavailable for subclassing.</item>
+    </slide>
+    <slide id="5" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">Structure</item>
+        <item kind="image" style="Custom image padding" level="2">decorator_demo/decorator_uml_2.png</item>
+    </slide>
+    <slide id="6" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">The motivation - example 1</item>
+        <item kind="text" level="1">Suppose we have a TextView GUI component and
+we want to add different kinds of borders and scrollbars to it.</item>
+        <item kind="text" level="1">Suppose we have three types of borders:</item>
+        <item kind="text" level="2">Plain, 3D, Fancy</item>
+        <item kind="text" level="1">And two types of scrollbars:</item>
+        <item kind="text" level="2">Horizontal, Vertical</item>
+        <item kind="text" level="1">Solution 1: Let's use inheritance first. We'll generate subclasses
+of TextView for all the required cases. We'll need the 15
+subclasses:</item>
+        <item kind="text" level="2">TextView-Plain</item>
+        <item kind="text" level="2">TextView-Fancy</item>
+        <item kind="text" level="2">TextView-3D</item>
+    </slide>
+    <slide id="7" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">The motivation example 1 - continued</item>
+        <item kind="text" level="2">TextView-Horizontal</item>
+        <item kind="text" level="2">TextView-Vertical</item>
+        <item kind="text" level="2">TextView-Horizontal-Vertical</item>
+        <item kind="text" level="2">TextView-Plain-Horizontal</item>
+        <item kind="text" level="2">TextView-Plain-Vertical</item>
+        <item kind="text" level="2">TextView-Plain-Horizontal-Vertical</item>
+        <item kind="text" level="2">TextView-3D-Horizontal</item>
+        <item kind="text" level="2">TextView-3D-Vertical</item>
+        <item kind="text" level="2">TextView-3D-Horizontal-Vertical</item>
+        <item kind="text" level="2">TextView-Fancy-Horizontal</item>
+        <item kind="text" level="2">TextView-Fancy-Vertical</item>
+        <item kind="text" level="2">TextView-Fancy-Horizontal-Vertical</item>
+    </slide>
+    <slide id="8" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">The motivation example 1 - continued</item>
+        <item kind="text" level="1">There are several disadvantages to this technique:</item>
+        <item kind="text" level="2">We already have an explosion of subclasses. What if we add another type
+of border? Or an entirely different property?</item>
+        <item kind="text" level="2">We have to instantiate a specific subclass to get the behavior we want.
+This choice is made statically and a client can't control how and when to
+decorate the component.</item>
+    </slide>
+    <slide id="9" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">The motivation example 1 - continued</item>
+        <item kind="text" level="1">Solution 2: Let’s use the Strategy pattern!</item>
+        <item kind="image" style="Custom image padding" level="2">decorator_demo/demo_strategy.png</item>
+    </slide>
+
+    <slide id="10" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">The motivation example 1 - continued</item>
+        <item kind="text" level="1">Now the TextView class look like this:</item>
+        <item kind="text" level="3">public class TextView extends Component{
+    private Border border;
+    private Scrollbar sb;
+
+    public TextView(Border border, Scrollbar sb){
+        this.border = border;
+        this.sb = sb;
+    }
+
+    public void draw(){
+        border.draw();
+        sb.draw();
+        // code to draw TexTview object itself
+    }
+}
+        </item>
+        <item kind="text" level="2">Using the Strategy pattern we can add or change properties to the
+TextView component dynamically. For example, we could have
+mutators for the border and sb attributes and we could change
+them at run-time.</item>
+        <item kind="text" level="2">But note that the TextView object itself had to be modified and it
+has knowledge of borders and scrollbars! If we wanted to add
+another kind of property or behavior, we would have to again
+modify TextView.</item>
+    </slide>
+    <slide id="11" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">The motivation example 1 - continued</item>
+        <item kind="text" level="1">Solution 3: Let's turn Strategy inside out to get the Decorator pattern!</item>
+        <item kind="image" style="Custom image padding" level="2">decorator_demo/decorator_demo_1.3.png</item>
+    </slide>
+</presentation>

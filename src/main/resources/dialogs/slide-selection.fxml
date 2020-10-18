@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import nl.ou.jabberpoint.ui.controls.PositiveNumberTextField?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="600" maxWidth="220" minHeight="220"
+            minWidth="600"
+            prefHeight="220.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1">
+    <center>
+        <GridPane prefHeight="364.0" prefWidth="550.0">
+
+            <BorderPane.margin>
+                <Insets bottom="25.0" left="25.0" right="25.0" top="10.0"/>
+            </BorderPane.margin>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="335.0" minWidth="10.0" prefWidth="167.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="466.0" minWidth="10.0" prefWidth="58.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="466.0" minWidth="10.0" prefWidth="294.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="60.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <children>
+                        <PositiveNumberTextField fx:id="numberTextfield">
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </PositiveNumberTextField>
+                        <ComboBox fx:id="titleComboBox" prefHeight="27.0" prefWidth="290.0" visible="false"/>
+                    </children>
+                </StackPane>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Naar welke slide wenst u te navigeren?"
+                      textAlignment="CENTER" wrappingWidth="529.08203125" GridPane.columnSpan="2147483647">
+                    <font>
+                        <Font name="Verdana" size="24.0"/>
+                    </font>
+                </Text>
+                <Button fx:id="selectButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="511.0"
+                        text="Selecteer"
+                        GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                    <children>
+                        <fx:define>
+                            <ToggleGroup fx:id="inputTypeSelectionGroup"/>
+                        </fx:define>
+                        <RadioButton fx:id="numberRadioButton" mnemonicParsing="false" selected="true" text="nummer"
+                                     toggleGroup="$inputTypeSelectionGroup">
+                        </RadioButton>
+                        <RadioButton fx:id="titleRadioButton" mnemonicParsing="false" text="titel"
+                                     toggleGroup="$inputTypeSelectionGroup">
+                            <VBox.margin>
+                                <Insets top="10.0"/>
+                            </VBox.margin>
+                        </RadioButton>
+                    </children>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </GridPane.margin>
+                </VBox>
+
+            </children>
+        </GridPane>
+    </center>
+</BorderPane>

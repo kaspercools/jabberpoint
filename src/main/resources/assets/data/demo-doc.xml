@@ -1,0 +1,177 @@
+<?xml version="1.1"?>
+<presentation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://jabberpoint.ou.nl"
+              xsi:schemaLocation="http://jabberpoint.ou.nl jabberpoint.xsd">
+    <metadata>
+        <author>Kasper Cools</author>
+        <creation-date>2019-09-09</creation-date>
+        <show-footer>true</show-footer>
+        <show-header>true</show-header>
+        <theme>DefaultTheme</theme>
+    </metadata>
+    <theme name="DefaultTheme">
+        <style name="mainTitleStyle">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#008000</color>
+            <font>
+                <fontFace>Sinhala MN</fontFace>
+                <fontSize>56</fontSize>
+            </font>
+            <spacing>
+                <direction>Top</direction>
+                <value>10</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <style name="titleStyle">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#ff0000</color>
+            <font>
+                <fontFace>Tahoma</fontFace>
+                <fontSize>48</fontSize>
+            </font>
+            <spacing>
+                <direction>Top</direction>
+                <value>5</value>
+            </spacing>
+            <spacing>
+                <direction>Left</direction>
+                <value>10</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <style name="level_2" level="2">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#ff0000</color>
+            <font>
+                <fontFace>Tahoma</fontFace>
+                <fontSize>32</fontSize>
+            </font>
+            <spacing>
+                <direction>Left</direction>
+                <value>20</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <style name="level_1" level="1">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#0000ff</color>
+            <font>
+                <fontFace>Verdana</fontFace>
+                <fontSize>24</fontSize>
+            </font>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+            <spacing>
+                <direction>Left</direction>
+                <value>30</value>
+            </spacing>
+        </style>
+        <style name="level_3" level="3">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#000000</color>
+            <font>
+                <fontFace>Tahoma</fontFace>
+                <fontSize>18</fontSize>
+            </font>
+            <spacing>
+                <direction>Left</direction>
+                <value>40</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <style name="level_4" level="4">
+            <backgroundColor>#ffffff</backgroundColor>
+            <color>#000000</color>
+            <font>
+                <fontFace>Bradley Hand</fontFace>
+                <fontSize>14</fontSize>
+            </font>
+            <spacing>
+                <direction>Left</direction>
+                <value>50</value>
+            </spacing>
+            <spacing>
+                <direction>Bottom</direction>
+                <value>5</value>
+            </spacing>
+        </style>
+        <footer>Auteur: $author$ - $today$ (titel: $slide.title$, type: $slide.type$)</footer>
+        <header>$slide.nr$ / $slides.count$</header>
+        <backdrop>ou-backdrop.png</backdrop>
+    </theme>
+    <sequence name="ExampleSequence1">
+        <slide id="2">
+            <skip>1</skip>
+        </slide>
+        <slide id="4"/>
+        <slide id="5"/>
+        <slide id="6">
+            <skip>1</skip>
+        </slide>
+        <slide id="6">
+            <skip>2</skip>
+        </slide>
+    </sequence>
+
+    <slide id="1" type="TitleSlide">
+        <item kind="text" style="mainTitleStyle">XML-Based Presentation for Jabberpoint</item>
+        <item kind="text" level="2">Een bijna lege slide</item>
+    </slide>
+    <slide id="2" type="TableOfContentsSlide">
+        <item kind="text">JabberPoint XML-Demo</item>
+        <item kind="text" style="level_1" level="1" x="250" y="40">Welkom bij Jabberpoint</item>
+        <item kind="text" style="level_2" level="2">CopyRight (c) 1996-2000 Ian Darwin</item>
+
+        <item kind="text" style="level_2" level="2">Herschreven door</item>
+        <item kind="text" style="mainTitleStyle" level="2">Kasper Cools</item>
+        <item kind="text" style="level_2" level="2">en Conny Hageluken, Jorgos Korres</item>
+        <item kind="text" style="level_1" level="1">Navigatie:</item>
+        <item kind="text" style="level_2" level="2">Volgende slide: PgDn or Enter</item>
+        <item kind="text" style="level_4" level="4">Vorige slide: PgUp or up-arrow</item>
+        <item kind="text" style="level_2" level="2">SToppen: q or Q</item>
+    </slide>
+    <slide id="3" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">Een bijna lege slide</item>
+        <item kind="text" style="level_2" level="2">Een bijna lege slide</item>
+    </slide>
+    <slide id="4" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">Achtergrond</item>
+        <item kind="text" style="level_1" level="1">Jabberpoint is een oefening voor de</item>
+        <item kind="text" style="level_1" level="1">cursus Design patterns van de Open universiteit</item>
+        <item kind="image" style="level_2" level="2">logo.png</item>
+        <item kind="text" style="level_1" level="1">De oefening is ontwikeld door het SERC</item>
+        <item kind="text" style="level_1" level="1">in samenwerking met de Open universiteit</item>
+        <item kind="image" style="level_2" level="2">serclogo_fc.jpg</item>
+    </slide>
+    <slide id="5" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">JabberPoint: levels en stijlen</item>
+        <item kind="text" style="level_1" level="1">level 1</item>
+        <item kind="text" style="level_2" level="2">level 2</item>
+        <item kind="text" style="level_1" level="1">A Jabberful Point</item>
+        <item kind="text" style="level_2" level="2">level 2 heeft stijl 2</item>
+        <item kind="text" style="level_3" level="3">Zo ziet de stijl van level 3 er uit</item>
+        <item kind="text" style="level_4" level="4">En dit is level 4</item>
+    </slide>
+    <slide id="6" type="OrdinarySlide">
+        <item kind="text" style="titleStyle">Laatste slide</item>
+        <item kind="text" style="level_1" level="1">Navigatie kan ook via het menu</item>
+        <item kind="text" style="level_2" level="2">Presentatie laden: File->Open</item>
+        <item kind="text" style="level_1" level="1">Dit is het einde van de presentatie.</item>
+        <item kind="image" style="level_1" level="1" x="350" y="150">JabberPoint.jpg</item>
+        <item kind="text" style="level_1" level="1">Tot ziens.</item>
+    </slide>
+</presentation>
